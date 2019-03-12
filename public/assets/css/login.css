@@ -1,0 +1,23 @@
+* {
+	font-family: Tahoma;
+}
+
+.fcg {
+	border: 1px solid #000;
+	width: 400px;
+	height: 300px;
+	margin-top: 50px;
+}
+
+.if {
+	margin-top: 20px;
+}
+
+.ib {
+	margin-top: 25px;
+}
+
+button {
+	cursor: pointer;
+}
+

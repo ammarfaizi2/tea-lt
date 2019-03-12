@@ -1,0 +1,9 @@
+*.o
+*.so
+*.swo
+*.swp
+*.tmp
+*.log
+*.lock
+/config.php
+/.phpintel/
