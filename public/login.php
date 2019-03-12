@@ -47,8 +47,8 @@ if (
 	$st = $pdo = null;
 	DB::close();
 	$sess->set("login_alert", "Invalid username or password");
-	header("Location: ?w=".urlencode(rstr(64)));
 	$sess->flush();
+	header("Location: ?w=".urlencode(rstr(64)));
 	exit;
 }
 
