@@ -2,6 +2,8 @@
 
 require_once __DIR__."/../init.php";
 
+load_helper("csrf");
+
 if (!isset($sess)) {
 	$sess = sess();
 	if ($sess->get("login")) {
@@ -16,11 +18,19 @@ if (
 		$_GET["w"],
 		$_POST["login"],
 		$_POST["username"],
-		$_POST["password"]
+		$_POST["password"],
+		$_POST["_tea_csrf"]
 	) && 
 	is_string($_POST["username"]) && 
 	is_string($_POST["password"])
 ) {
+
+	if (!validate_csrf()) {
+		$sess->set("login_alert", "Invalid CSRF Token");
+		$sess->flush();
+		header("Location: ?w=".urlencode(rstr(64)));
+		exit;
+	}
 
 	$_POST["username"] = trim(strtolower($_POST["username"]));
 

@@ -28,14 +28,11 @@ function sess(): Session
 }
 
 /**
- * @return string
+ * @return void
  */
-function getCsrf(): string
+function load_helper(string $name): void
 {
-	$sess = sess();
-	$csrf = rstr(64);
-	$sess->set2("csrf", $csrf);
-	return $csrf;
+	require_once BASEPATH."/isolated/helpers/{$name}.php";
 }
 
 /**
