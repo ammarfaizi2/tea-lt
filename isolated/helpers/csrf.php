@@ -6,9 +6,13 @@
 function getCsrf(): string
 {
 	$sess = sess();
-	$csrf = rstr(64);
+	$csrf = $sess->get2("csrf", 0);
+	if ($csrf !== 0) {
+		return cencrypt($csrf, APP_KEY);
+	}
+	$csrf = rstr(32);
 	$sess->set2("csrf", $csrf);
-	return $csrf;
+	return dencrypt($csrf, APP_KEY);
 }
 
 /**
@@ -16,8 +20,8 @@ function getCsrf(): string
  */
 function validate_csrf(): bool
 {
-	$sess = sess();
-	if (isset($_POST["_csrf_token"])) {
-		# code...
+	if (isset($_POST["_tea_csrf"])) {
+		return sess()->get2("csrf") === $_POST["_tea_csrf"];
 	}
+	return false;
 }

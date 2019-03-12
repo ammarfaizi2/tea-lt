@@ -64,6 +64,11 @@ if (
 
 $msg = $sess->get("login_alert");
 $csrf = getCsrf();
+if (is_string($msg)) {
+	$sess->unset("login_alert");
+} else {
+	unset($msg);
+}
 $sess->flush();
 
 ?><!DOCTYPE html>
@@ -71,7 +76,7 @@ $sess->flush();
 <head>
 	<title>Login</title>
 	<link rel="stylesheet" type="text/css" href="assets/css/login.css"/>
-<?php if (is_string($msg)): ?>
+<?php if (isset($msg)): ?>
 	<script type="text/javascript">alert("<?php print stripslashes($msg); ?>");</script>
 <?php endif; ?>
 </head>
