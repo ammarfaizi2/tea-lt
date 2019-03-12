@@ -22,7 +22,7 @@ $username = &$sess->get("username");
 </head>
 <body>
 	<center>
-		<a href="piutang.php"><h2>Daftar Piutang</h2></a>
+		<a href="piutang.php?w=<?php print htmlspecialchars(urlencode(rstr(64))); ?>"><h2>Daftar Piutang</h2></a>
 	</center>
 </body>
 </html>

@@ -13,16 +13,14 @@ if (!isset($sess)) {
 $uid = &$sess->get("user");
 $username = &$sess->get("username");
 
-
-?><!DOCTYPE html>
-<html>
-<head>
-	<title>Daftar Piutang</title>
-	<link rel="stylesheet" type="text/css" href="assets/css/piutang.css"/>
-</head>
-<body>
-	<center>
-		
-	</center>
-</body>
-</html>
+$_GET["pg"] = $_GET["pg"] ?? "home";
+switch ($_GET["pg"]) {
+	case "home":
+		require __DIR__."/../isolated/piutang/{$_GET["pg"]}.php";
+		break;
+	default:
+		http_response_code(404);
+		print "Page not found!";
+		exit;
+		break;
+}
