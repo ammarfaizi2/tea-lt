@@ -10,7 +10,7 @@ define("MY_HELPERS", true);
  */
 function rstr(int $n = 32, string $e = null): string
 {
-	$e = is_string($e) ? $e : "1234567890qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM______.....-----";
+	$e = is_string($e) ? $e : "1234567890qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM___...---";
 	$r = "";
 	$c = strlen($e) - 1;
 	for ($i=0; $i < $n; $i++) { 
@@ -33,6 +33,14 @@ function sess(): Session
 function load_helper(string $name): void
 {
 	require_once BASEPATH."/isolated/helpers/{$name}.php";
+}
+
+/**
+ * @return void
+ */
+function headd(): void
+{
+	require BASEPATH."/isolated/pages/headd.php";
 }
 
 /**

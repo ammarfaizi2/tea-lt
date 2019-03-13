@@ -16,7 +16,7 @@ $username = &$sess->get("username");
 $_GET["pg"] = $_GET["pg"] ?? "home";
 switch ($_GET["pg"]) {
 	case "home":
-		require __DIR__."/../isolated/piutang/{$_GET["pg"]}.php";
+		require __DIR__."/../isolated/pages/piutang/{$_GET["pg"]}.php";
 		break;
 	default:
 		http_response_code(404);

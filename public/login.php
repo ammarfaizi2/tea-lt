@@ -75,6 +75,7 @@ $sess->flush();
 <html>
 <head>
 	<title>Login</title>
+	<?php headd(); ?>
 	<link rel="stylesheet" type="text/css" href="assets/css/login.css"/>
 <?php if (isset($msg)): ?>
 	<script type="text/javascript">alert("<?php print stripslashes($msg); ?>");</script>

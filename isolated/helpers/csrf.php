@@ -21,7 +21,7 @@ function getCsrf(): string
 function validate_csrf(): bool
 {
 	if (isset($_POST["_tea_csrf"])) {
-		return sess()->get2("csrf") === $_POST["_tea_csrf"];
+		return sess()->get2("csrf") === dencrypt($_POST["_tea_csrf"], APP_KEY);
 	}
 	return false;
 }

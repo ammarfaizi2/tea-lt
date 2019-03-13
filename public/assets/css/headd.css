@@ -1,0 +1,11 @@
+button {
+	cursor: pointer;
+}
+#nv {
+	border: 1px solid #000;
+	height: 75px;
+	margin-bottom: 30px;
+}
+.nb {
+	margin-top: 5px;
+}

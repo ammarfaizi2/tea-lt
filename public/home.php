@@ -18,6 +18,7 @@ $username = &$sess->get("username");
 <html>
 <head>
 	<title>Welcome <?php print htmlspecialchars($username, ENT_QUOTES, "UTF-8"); ?>!</title>
+	<?php headd(); ?>
 	<link rel="stylesheet" type="text/css" href="assets/css/home.css"/>
 </head>
 <body>
